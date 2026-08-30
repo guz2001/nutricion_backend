@@ -1,0 +1,31 @@
+# Entorno virtual — cada quien genera el suyo
+venv/
+.venv/
+
+# Variables de entorno — NUNCA al repositorio (contraseñas)
+.env
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Base de datos SQLite local (Django la crea para desarrollo a veces)
+*.sqlite3
+db.sqlite3
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Archivos de distribución Python
+dist/
+build/
+*.egg-info/
