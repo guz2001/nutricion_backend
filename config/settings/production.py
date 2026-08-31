@@ -8,10 +8,11 @@ from .base import *
 DEBUG = False
 
 # En producción: solo el dominio real del servidor
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
-
+ALLOWED_HOSTS = ['*']
 # CORS: solo el dominio real del frontend
+""" no se usa por ahora
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS',
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
+"""
