@@ -13,13 +13,18 @@ class GrupoAlimento(models.Model):
     def __str__(self):
         return self.nombre # devuelve el nombre del grupo
 
-    
+"""
+    Como PostgreSQL maneja el ENUM a su manera y Django no tiene un tipo ENUM nativo simple,
+    lo representamos como texto con una lista fija de opciones válidas. 
+    Django valida contra esa lista en formularios y en el admin, pero a nivel de base de datos sigue siendo el ENUM real de PostgreSQL — Django no lo toca.
+"""  
 class Alimento(models.Model):
     POBLACION_CHOICES = [
         ('menores_de_dos_anios','Menores de dos años'),
         ('niños','Niños'),
         ('adultos','Adultos'),
         ('niños_y_adultos','Niños y Adultos'),
+       
 
     ]#Se crea esta tupla para garantinzar que las opciones de la columna poblacion solo sean estas
 
