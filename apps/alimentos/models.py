@@ -18,7 +18,7 @@ class GrupoAlimento(models.Model):
     lo representamos como texto con una lista fija de opciones válidas. 
     Django valida contra esa lista en formularios y en el admin, pero a nivel de base de datos sigue siendo el ENUM real de PostgreSQL — Django no lo toca.
 """  
-class Alimentos(models.Model):
+class Alimento(models.Model):
     POBLACION_CHOICES = [
         ('menores_de_dos_anios','Menores de dos años'),
         ('niños','Niños'),
