@@ -20,7 +20,7 @@ class GrupoAlimento(models.Model):
 """  
 class Alimento(models.Model):
     POBLACION_CHOICES = [
-        ('niños_y_adultos', 'Niños y adultos'),
+         ('niños_y_adultos', 'Niños y adultos'),
         ('adultos', 'Adultos'),
         ('niños', 'Niños'),
         ('menores_de_dos_anios', 'Menores de dos años'),

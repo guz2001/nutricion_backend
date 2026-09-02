@@ -3,21 +3,24 @@ from apps.alimentos.models import Alimento
 from apps.alimentos.models import GrupoAlimento
 
 class GrupoAlimentoSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model=GrupoAlimento
-        fields=['id','nombre','descripcion']
+        fields=['id','nombre']
 
 
+class AlimentoListSerializer(serializers.ModelSerializer):
+    grupo=GrupoAlimentoSerializer(read_only=True)#Lo que hace esto es decirle a django que no solo me de el id del grupo alimento,
+    class Meta:
+        
+        #Necesito que me de todo lo relacionado a ese GrupoAlimento por que cada numero corresponde a un grupo ya sea lacteos etc
+        model=Alimento
+        fields=['id','nombre','porcion_g','kcal','cho_g','grasa_total_g','proteina_g','unidad_medida','grupo']
 
 
-
-
-class AlimentoSerializer(serializers.ModelSerializer):
-
+class AlimentoAllSerializer(serializers.ModelSerializer):
+    grupo=GrupoAlimentoSerializer(read_only=True)#Lo que hace esto es decirle a django que no solo me de el id del grupo alimento,
     class Meta:
         model=Alimento
-
-        fields=['id','grupo','subgrupo','nombre','poblacion','porcion_g','unidad_medida','kcal',
-            'proteina_g','grasa_total_g','ags_g','agm_g','agp_g','colesterol_mg','cho_g',
-            'fibra_g','calcio_mg','fosforo_mg','hierro_mg','sodio_mg']
-        #Cambiar esta clase mas tarde
+        fields='__all__'
+        
