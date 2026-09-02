@@ -20,3 +20,4 @@ class AlimentoSerializer(serializers.ModelSerializer):
         fields=['id','grupo','subgrupo','nombre','poblacion','porcion_g','unidad_medida','kcal',
             'proteina_g','grasa_total_g','ags_g','agm_g','agp_g','colesterol_mg','cho_g',
             'fibra_g','calcio_mg','fosforo_mg','hierro_mg','sodio_mg']
+        #Cambiar esta clase mas tarde
