@@ -20,11 +20,10 @@ class GrupoAlimento(models.Model):
 """  
 class Alimento(models.Model):
     POBLACION_CHOICES = [
-        ('menores_de_dos_anios','Menores de dos años'),
-        ('niños','Niños'),
-        ('adultos','Adultos'),
-        ('niños_y_adultos','Niños y Adultos'),
-       
+        ('niños_y_adultos', 'Niños y adultos'),
+        ('adultos', 'Adultos'),
+        ('niños', 'Niños'),
+        ('menores_de_dos_anios', 'Menores de dos años'),
 
     ]#Se crea esta tupla para garantinzar que las opciones de la columna poblacion solo sean estas
 
