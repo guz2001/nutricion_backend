@@ -27,6 +27,9 @@ class AlimentoViewSet(viewsets.ModelViewSet):
 
         if q:
             queryset=queryset.annotate(parecido=TrigramSimilarity('nombre',q)) #Calcular el puntaje de similitud hasta aca solo hace esto lo de abajo lo mostrar
-            queryset =queryset.filter(parecido__gt=0.1)#Aca si lo  muestra por que le dice que dice que queryset es igual a solo mostrar los datos mayores a 0.1 
-            return queryset
+            queryset =queryset.filter(parecido__gt=0.1)#Aca si lo  muestra por que le dice que dice que queryset es igual a solo mostrar los datos mayores a 0.1
+            orderby=queryset.order_by('-parecido') 
+            return orderby#intento de ordenarlos jaja me quedo de la mierda
+
+
         return queryset  #<- Si esta vacio devuelve todo los datos osea Alimento.objetcs.all()
