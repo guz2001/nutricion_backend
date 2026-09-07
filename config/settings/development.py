@@ -10,10 +10,11 @@ from .base import *
 DEBUG = True
 
 # En desarrollo permitimos cualquier host local
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','ablaze-acorn-retiree.ngrok-free.dev']
 
 # CORS: permite que el frontend Astro (puerto 4321) consuma la API
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4321',
     'http://127.0.0.1:4321',
+    
 ]

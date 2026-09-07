@@ -2,6 +2,7 @@ import django_filters
 from apps.alimentos.models import Alimento
 
 
+
 class AlimentoFilter(django_filters.FilterSet):
     grupo_id= django_filters.NumberFilter(field_name='grupo') 
     """
@@ -12,4 +13,4 @@ class AlimentoFilter(django_filters.FilterSet):
     """
     class Meta:
         model = Alimento
-        fields =  ['poblacion','grupo_id']
+        fields =  ['grupo_id']
