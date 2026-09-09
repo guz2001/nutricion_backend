@@ -15,7 +15,7 @@ class AlimentoListSerializer(serializers.ModelSerializer):
         
         #Necesito que me de todo lo relacionado a ese GrupoAlimento por que cada numero corresponde a un grupo ya sea lacteos etc
         model=Alimento
-        fields=['id','nombre','porcion_g','kcal','cho_g','grasa_total_g','proteina_g','unidad_medida','grupo']
+        fields=['id','nombre','porcion_g','kcal','cho_g','grasa_total_g','proteina_g','unidad_medida','grupo','fibra_g']
 
 
 class AlimentoAllSerializer(serializers.ModelSerializer):
