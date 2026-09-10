@@ -11,11 +11,12 @@ class GrupoAlimentoViewSet(viewsets.ModelViewSet):
     
     def get_queryset(self):
         queryset= GrupoAlimento.objects.all()
-        poblacion=self.request.query_params.get('poblacion')
+        poblacion=self.request.query_params.get('poblacion')#filtramos por poblacion
         
         
         if poblacion:
-            queryset=queryset.filter(alimento__poblacion=poblacion).distinct()
+            queryset=queryset.filter(alimento__poblacion=poblacion).distinct()#distinc filtra por unicos para identicar en que grupo estan
+            #ademas nos devuelve los grupos filtrados 
 
         return queryset
 
