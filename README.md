@@ -28,7 +28,29 @@ macronutrientes,micronutrientes, poblacion, grupos alimenticios.
 ## Configuración
 1. Copiar .env.example a .env
 2. Completar las variables (nombre de BD, usuario, contraseña, host, puerto)
-   [tu idea de "establecer las variables con los valores de acceso"]
+   En el proyecto tenemos que tener encuenta configurar las credenciales para conectar el backend de django con la base de datos que tenemos creada
+   Para esto tenemos que tener claro 6 datos de la base de datos que son:
+   1-Que motor de base de datos estamos utilizando, debido a que en este espacio se organizara la variable ENGINE que le damos el valor del motod de base de datos, para postgresql quedaria asi "'ENGINE': 'django.db.backends.postgresql'"
+   2-Nombre de la base de datos, en este caso como usamos postgresql la db se llama nutricion_db sera postgres pero puede ser otro creado e iria de la siguiente manera 'NAME': config('DB_NAME')
+
+   3-Nombre del usuario que accede a la base de datos, puede ser el admin de postgresql que en este caso se llama postgres,
+   
+   4-Configuramos la contraseña que le asignamos a la base de datos para acceder
+   
+   5-Para este apartado buscamos la ubicacion de donde esta corriendo la base de datos de postgresq, local host 
+   
+   6-Por ultimo tendriamos que saber exactamente el puerto donde corre el postgresq
+
+
+Al tener claro estos dato nos dirigimos al archivo env, donde se ubicaran las variables a rellenar con la informacion anteriormente recopilada, por si se olvida serian las siguiente:
+SECRET_KEY
+
+DEBUG
+DB_NAME
+DB_USER
+DB_PASSWORD
+DB_HOST
+DB_PORT
 
 ## Ejecutar el proyecto
 - python manage.py runserver
