@@ -28,7 +28,7 @@ macronutrientes,micronutrientes, poblacion, grupos alimenticios.
 ## Configuración
 1. Copiar .env.example a .env
 2. Completar las variables (nombre de BD, usuario, contraseña, host, puerto)
-   En el proyecto tenemos que tener encuenta configurar las credenciales para conectar el backend de django con la base de datos que tenemos creada
+   En el proyecto tenemos que tener encuenta configurar las credenciales para conectar el backend de django con la base de datos que tenemos creada y tambien la secret key de django
    Para esto tenemos que tener claro 6 datos de la base de datos que son:
    1-Que motor de base de datos estamos utilizando, debido a que en este espacio se organizara la variable ENGINE que le damos el valor del motod de base de datos, para postgresql quedaria asi "'ENGINE': 'django.db.backends.postgresql'"
    2-Nombre de la base de datos, en este caso como usamos postgresql la db se llama nutricion_db sera postgres pero puede ser otro creado e iria de la siguiente manera 'NAME': config('DB_NAME')
@@ -41,8 +41,7 @@ macronutrientes,micronutrientes, poblacion, grupos alimenticios.
    
    6-Por ultimo tendriamos que saber exactamente el puerto donde corre el postgresq
 
-
-Al tener claro estos dato nos dirigimos al archivo env, donde se ubicaran las variables a rellenar con la informacion anteriormente recopilada, por si se olvida serian las siguiente:
+   Al tener claro estos dato nos dirigimos al archivo env, donde se ubicaran las variables a rellenar con la informacion anteriormente recopilada, por si se olvida serian las siguiente:
 SECRET_KEY
 
 DEBUG
@@ -51,6 +50,9 @@ DB_USER
 DB_PASSWORD
 DB_HOST
 DB_PORT
+
+3. Para evitar errores al correr la aplicacion con python manage.py runserver se debe de crear las tablas no existentes para poder asociar los datos, para realizarlas desde cero esas tablas habria que ejecturar el comando python manage.py migrate
+
 
 ## Ejecutar el proyecto
 - python manage.py runserver
