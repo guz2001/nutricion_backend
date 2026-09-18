@@ -71,3 +71,23 @@ class Alimento(models.Model):
 
     def __str__(self):
         return self.nombre # devuelve el nombre del grupo
+
+"""
+    A diferencia de Alimento y GrupoAlimento, esta tabla NO es preexistente:
+    nace con el proyecto Django, por eso NO lleva managed=False.
+    Django sí la crea y la administra mediante migraciones.
+"""
+class AlimentoGuardado(models.Model):
+    # CASCADE (y no DO_NOTHING como en los otros modelos) porque esta tabla sí
+    # la controla Django: si se borra un alimento, sus guardados se van con él.
+    alimento = models.ForeignKey(Alimento, on_delete=models.CASCADE, related_name='guardados')
+    # Decimal y no Integer para permitir medias porciones (0.5, 1.5)
+    cantidad = models.DecimalField(max_digits=6, decimal_places=2, default=1)
+    creado_en = models.DateTimeField(auto_now_add=True)  # Django pone la fecha al crear, no se envía desde el frontend
+
+    class Meta:
+        db_table = 'alimentos_guardados'
+        ordering = ['-creado_en']  # los más recientes primero
+
+    def __str__(self):
+        return f'{self.alimento.nombre} x{self.cantidad}'

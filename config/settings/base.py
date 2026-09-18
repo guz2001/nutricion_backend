@@ -87,6 +87,10 @@ STATIC_URL = 'static/'
 # Campo PK por defecto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Runner de pruebas: crea las tablas de los modelos managed=False en la base de
+# pruebas, que si no quedarían sin crear y todo test que las use fallaría.
+TEST_RUNNER = 'config.test_runner.ManagedModelTestRunner'
+
 # Configuración de Django REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
