@@ -16,5 +16,6 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1','ablaze-acorn-retiree.ngrok-free.dev']
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4321',
     'http://127.0.0.1:4321',
+    'ttps://ablaze-acorn-retiree.ngrok-free.dev'
     
 ]
